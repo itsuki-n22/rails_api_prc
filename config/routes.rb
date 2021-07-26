@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       post "auth/logout", to: "auth#logout"
       get  "user/profile", to: "users#profile"
       post "user/log_out", to: "users#log_out"
+      resources :lists
       resources :users
     end
   end
