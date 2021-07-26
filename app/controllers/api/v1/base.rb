@@ -1,5 +1,5 @@
 class Api::V1::Base < ApplicationController
-  include ActionController::Cookies
+  #include ActionController::Cookies # config/applicationでincludeしていたら不要かもしれない
   include ActionController::RequestForgeryProtection
   protect_from_forgery with: :exception
   after_action :set_csrf_token_header

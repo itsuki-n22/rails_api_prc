@@ -25,7 +25,7 @@ module Backy
     config.load_defaults 6.1
     config.api_only = true
 
-    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Cookies #ここでincludeしないと sessionが使えない
     config.middleware.use ActionDispatch::Session::CookieStore
     config.middleware.use ActionDispatch::ContentSecurityPolicy::Middleware
 
