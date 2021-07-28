@@ -5,8 +5,12 @@ class Api::V1::ListsController < Api::V1::Base
   end
 
   def create
-    list = current_user.lists.create(list_params)
-    render json: list , status: 200
+    list = current_user.lists.build(list_params)
+    if list.save
+      render json: list , status: 200
+    else
+      render json: {state:"failure", message: list.errors.messages.values } , status: 400
+    end
   end
 
   def update
