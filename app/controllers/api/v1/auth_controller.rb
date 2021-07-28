@@ -1,6 +1,6 @@
 class Api::V1::AuthController < Api::V1::Base
   def login
-    if user = User.login(params)
+    if user = User.login(params) 
       session[:user_id] = user.id
       render json: { userId: user.id } , status: 200
     else
